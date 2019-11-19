@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { AppBar } from "@material-ui/core";
-import { Toolbar } from "@material-ui/core";
-import { Menu } from "@material-ui/icons";
-import { IconButton } from "@material-ui/core";
+import  AppBar  from "@material-ui/core/AppBar";
+import Toolbar  from "@material-ui/core/Toolbar";
+import  Menu  from "@material-ui/icons/Menu";
+import IconButton  from "@material-ui/core/IconButton";
 import SideDrawer from "./SideDrawer";
 
 export default class Header extends Component {
@@ -13,7 +13,11 @@ export default class Header extends Component {
     
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll)
-    }
+	}
+	
+	// componentWillUnmount(){
+	// 	window.removeEventListener('scroll', this.handleScroll)
+	// }
 
 
     handleScroll = () => {
@@ -45,8 +49,10 @@ export default class Header extends Component {
 				}}>
 				<Toolbar>
 					<div className='header_logo'>
-						<div className='font_righteous header_logo_venue'> The Venue</div>
-						<div className=' header_logo_title'> Musical Event</div>
+						<div className='font_righteous header_logo_venue'> SHORT LET</div>
+						<div className=' header_logo_title'> 
+							Home away from Home
+						</div>
 					</div>
 
 					<IconButton
@@ -57,8 +63,8 @@ export default class Header extends Component {
 					</IconButton>
 
 					<SideDrawer
-						open={this.state.drawerOpen}
-						onClose={value => this.toggleDrawer(value)}
+						closeDrawer={this.state.drawerOpen}
+						onClose={() => this.toggleDrawer(false)}
 					/>
 				</Toolbar>
 			</AppBar>

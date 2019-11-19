@@ -4,12 +4,12 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 
 
-export default function SideDrawer(props) {
+export default function SideDrawer({closeDrawer, onClose}) {
     return (
         <Drawer
             anchor="right"
-            open={props.open}
-            onClose={()=> props.onClose(false)}
+            open={closeDrawer}
+            onClose={()=> onClose(false)}
         
         >
 
