@@ -13,8 +13,7 @@ import Header from './components/header_footer/Header';
 export default class App extends Component {
   render() {
     return (
-      <>
-        
+      <> 
         <Header/>
         <Switch>
           <Route path="/" exact component={Home} />
