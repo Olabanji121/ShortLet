@@ -15,22 +15,22 @@ const HowitWorks = () => {
              <div className="col text-center">
         <img src={Iphone} alt="phone view" className="phone" />
       </div>
-            <div className="col span-1-of-2 steps-box">
+            <div className="col steps-box">
                 <div className="works-step">
                     <div>1</div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo laborum tempore consequuntur magni reprehenderit veritatis!</p>
+                    <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo laborum tempore consequuntur </p>
                 </div>
                 <div className="works-step">
                     <div>2</div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo laborum tempore consequuntur magni reprehenderit veritatis!!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo laborum tempore consequuntur </p>
                 </div>
                 <div className="works-step">
                     <div>3</div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo laborum tempore consequuntur magni reprehenderit veritatis!!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo laborum tempore consequuntur </p>
                 </div>
                 <div className="works-step">
                     <div>4</div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo laborum tempore consequuntur magni reprehenderit veritatis!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo laborum tempore consequuntur magni </p>
                 </div>
 
                 <a href="/" className="btn-app"><img src={Ios} alt="Ios app download"  className="ios-img"/></a>
