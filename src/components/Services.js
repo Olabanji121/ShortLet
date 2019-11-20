@@ -32,7 +32,7 @@ export default class Services extends Component {
     render() {
         return (
             <section className="services">
-                <Title title= "SERVICES"/>
+                <Title title= "SERVICES" styleClass="section-title"/>
                 <div className="services-center">
                         {this.state.services.map((item, index)=>{
                             return <article key={index} className="servicesList card">

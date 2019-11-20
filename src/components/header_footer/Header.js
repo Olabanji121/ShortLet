@@ -4,6 +4,7 @@ import Toolbar  from "@material-ui/core/Toolbar";
 import  Menu  from "@material-ui/icons/Menu";
 import IconButton  from "@material-ui/core/IconButton";
 import SideDrawer from "./SideDrawer";
+import {Link} from 'react-router-dom'
 
 export default class Header extends Component {
 	state = {
@@ -45,13 +46,16 @@ export default class Header extends Component {
 				style={{
 					backgroundColor: this.state.headerShow? "#2f2f2f" : "transparent",
 					boxShadow: "none",
-					padding: "20px  0px"
+					padding: "10px  0px"
 				}}>
 				<Toolbar>
 					<div className='header_logo'>
-						<div className='font_righteous header_logo_venue'> SHORT LET</div>
+						<div className='font_righteous header_logo_venue'>
+							<Link to='/' className="logo">ShortLetNG</Link>
+						
+						</div>
 						<div className=' header_logo_title'> 
-							Home away from Home
+							<h6 className="sub-title ft2">home away from home...</h6>
 						</div>
 					</div>
 

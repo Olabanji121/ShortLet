@@ -7,17 +7,17 @@ const Featured = () => {
   return (
     <div  style={{ position: "relative" }}>
       <Carousel />
-      <div className="artist_name col-10 mx-auto col-md-6 col-lg-4 text-center ">
-        <h1 className="x-large text-light">SHORT LET</h1>
-        <p className="lead text-light">Rent  Short  Let  Apartments  with  Ease....</p>
+      <div className="hero-word col-10 mx-auto col-md-6 col-lg-4 text-center ">
+        <h3 className=" ft text-light text-capitalize">Your one stop web Platfrom for short let apartments.</h3>
+        {/* <p className=" text-light">Rent  Short  Let  Apartments  with  Ease....</p> */}
         <div className="reg">
           
-            <Link to="/register" className= "text-uppercase btn btn-warning  mt-3" >Register</Link>
+            <Link to="/register" className= "text-uppercase btn btn-primary2  mt-3" >Register</Link>
         
           </div>
          <div className="login ml-3">
          
-            <Link to="/register" className= "text-uppercase btn btn-warning  mt-3" >Login</Link>
+            <Link to="/login" className= "text-uppercase btn btn-primary3 ft2 mt-3" >Login</Link>
             
          </div>
       </div>
