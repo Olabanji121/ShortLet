@@ -63,7 +63,7 @@ export default class Header extends Component {
 						arial-label='Menu'
 						color='inherit'
 						onClick={() => this.toggleDrawer(true)}>
-						<Menu />
+						<Menu style={{color:"#D2603A"}}/>
 					</IconButton>
 
 					<SideDrawer

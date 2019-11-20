@@ -2,6 +2,7 @@ import React from "react";
 import Services from "../components/Services";
 import Featured from "../components/features/index";
 import FeaturedRooms from "../components/FeaturedRooms";
+import HowitWorks from '../components/HowitWorks'
 
 const Home = () => {
   return (
@@ -11,8 +12,10 @@ const Home = () => {
         // style={{ height: "1500px", background: "cornflowerblue" }}
       >
         <Featured />
-        <Services/>
         <FeaturedRooms/>
+        <Services/>
+        <HowitWorks/>
+       
       </div>
     </>
   );

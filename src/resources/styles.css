@@ -32,6 +32,9 @@ body {
     margin:0 auto;
 }
 
+.phone{
+  height: 500px;
+}
 
 /*====================
         HEADER
@@ -114,7 +117,7 @@ header .header_logo_title {
 
 .section-title {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
   }
   .section-title h4 {
     font-size: 2rem;
@@ -356,6 +359,17 @@ header .header_logo_title {
 
   a:visited{
     outline: none;
+  }
+
+  /* how it works  */
+
+  .how-center {
+    width: 90vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 2fr));
+    grid-row-gap: 2rem;
+    grid-column-gap: 50px;
   }
   /* end of room  */
 /*====================

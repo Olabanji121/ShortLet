@@ -17,13 +17,13 @@ const RoomComp = ({ featuredRoom }) => {
 						.toFixed(2)
 						.toString()
 						.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h6>
-          <p>per day</p>
+          <p>/ per day</p>
         </div>
         <Link to={`/rooms/${slug}`} className="btn-primary2 room-link">
           Details
         </Link>
       </div>
-          <p className="room-info">{name}, Location: {location}</p>
+          <p className="room-info">{name}, Location: {location}.</p>
     </article>
   );
 };
