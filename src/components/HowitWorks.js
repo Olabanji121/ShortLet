@@ -4,6 +4,7 @@ import Ios from '../resources/images/ios.svg';
 import And from '../resources/images/and.png';
 import Title from "../components/Title";
 
+
 const HowitWorks = () => {
   return (
       <section className="mt-5">
@@ -32,8 +33,8 @@ const HowitWorks = () => {
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo laborum tempore consequuntur magni reprehenderit veritatis!</p>
                 </div>
 
-                <a href="#" className="btn-app"><img src={Ios} alt="Ios app download"  className="ios-img"/></a>
-                <a href="#" className="btn-app"><img src={And} alt="andriod download"/> </a>
+                <a href="/" className="btn-app"><img src={Ios} alt="Ios app download"  className="ios-img"/></a>
+                <a href="/" className="btn-app"><img src={And} alt="andriod download"/> </a>
             </div>
         </div>
      

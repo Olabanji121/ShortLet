@@ -55,9 +55,7 @@ header .header_logo_venue {
   font-size: 30px;
 }
 
-header .header_logo_title {
-  /* text-transform: capitalize; */
-}
+
 
 .reg,
 .login {
@@ -239,13 +237,12 @@ a:hover {
 ======================*/
 
 /* room */
-.room {
-  box-shadow: var(--lightShadow);
-  transition: var(--mainTransition);
+.rm {
+  border-radius: 10px !important;
 }
-.room:hover {
+/* .room:hover {
   box-shadow: var(--darkShadow);
-}
+} */
 
 .btn-primary2 {
   display: inline-block;
@@ -294,11 +291,12 @@ a:hover {
 
 .img-container {
   position: relative;
+  
 }
 .img-container img {
   width: 100%;
   display: block;
-  transition: var(--mainTransition);
+  transition: all 0.3s linear;
 }
 .price-top {
   position: absolute;
