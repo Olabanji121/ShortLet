@@ -45,7 +45,7 @@ export default class Header extends Component {
 				style={{
 					backgroundColor: this.state.headerShow? "#2f2f2f" : "transparent",
 					boxShadow: "none",
-					padding: "10px  0px"
+					padding: "20px  0px"
 				}}>
 				<Toolbar>
 					<div className='header_logo'>
