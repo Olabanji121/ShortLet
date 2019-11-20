@@ -23,10 +23,11 @@ const RoomContext = React.createContext()
             rooms,
             sortedRooms: rooms,
             loading: false,
-            featuredRooms: featuredRooms.filter(featuredRoom => )
+            featuredRooms: rooms.filter(room => room.featured === true )
         })
         
-
+        
+        
 
     }
 
