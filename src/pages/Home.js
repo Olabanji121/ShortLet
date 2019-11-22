@@ -2,7 +2,7 @@ import React from "react";
 import Services from "../components/Services";
 import Featured from "../components/features/index";
 import FeaturedRooms from "../components/FeaturedRooms";
-import HowitWorks from '../components/HowitWorks'
+import HowitWorks from '../components/HowitWorks';
 
 const Home = () => {
   return (

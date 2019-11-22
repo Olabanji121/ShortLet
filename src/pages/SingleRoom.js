@@ -1,13 +1,56 @@
-import React from 'react'
+import React, { Component } from "react";
+// import defaultImg from '../resources';
+import Hero from "../components/Hero";
+import Banner from "../components/Banner";
+import { Link } from "react-router-dom";
+import { RoomContext } from "../Context";
 
-const SingleRoom = () => {
-    return (
-        <div className="bg-dark header-hero " style={{height:"1500px"}}>
-        <div className="col-10 mx-auto col-md-6 col-lg-4 text-center container">
-            hello from from 
+export default class SingleRoomComp extends Component {
+  constructor(props) {
+    super(props);
+    // console.log(this.props);
+    this.state = {
+      slug: this.props.match.params.slug
+    };
+  }
+
+  // componentDidMount(){}
+
+  static contextType = RoomContext;
+
+  render() {
+    const { getRoom } = this.context;
+    const room = getRoom(this.state.slug);
+    // console.log(room);
+
+    if (!room) {
+      return (
+        <div className="error">
+          <h3> no such room could be found...</h3>
+          <Link to="/rooms" className="btn-primary">
+            Banck to rooms
+          </Link>
         </div>
-    </div>
-    )
-}
+      );
+    }
 
-export default SingleRoom
+    const {
+      name,
+      description,
+      capacity,
+      size,
+      price,
+      extras,
+      pets,
+      images
+    } = room;
+
+    return (
+      <Hero styleClass="roomsHero">
+        <Banner title={`${name} room`}>
+        <Link to='/rooms'className="text-uppercase btn btn-primary2  mt-3">back to rooms</Link>
+        </Banner>
+      </Hero>
+    );
+  }
+}

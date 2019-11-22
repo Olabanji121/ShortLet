@@ -102,6 +102,69 @@ header .header_logo_venue {
   margin-top: 3rem;
 }
 
+/* Hero */
+.defaultHero,
+.roomsHero {
+  min-height: 100vh;
+  background: url("./images/room-12.jpeg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.roomsHero {
+  background-image: url("./images/room-2.jpeg");
+  min-height: 65vh;
+}
+
+/* End of Hero */
+/* Banner */
+
+.banner-center{
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  text-transform: capitalize;
+  letter-spacing: 3px;
+}
+.banner h1 {
+  font-size: 2.5rem;
+}
+.banner div {
+  width: 10rem;
+  height: 5px;
+  background: #af9a7d;
+  margin: 1.7rem auto;
+}
+.banner p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 576px) {
+  .banner {
+    padding: 2rem 3rem;
+  }
+  .banner h1 {
+    font-size: 3rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .banner {
+    padding: 2rem 6rem;
+  }
+  .banner h1 {
+    font-size: 4rem;
+  }
+}
+/* End of Banner */
+
 /*====================
         TITLE
 ======================*/
@@ -448,6 +511,12 @@ a:visited {
   margin-right: 10px;
 }
 
+.error {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 2rem 0;
+}
+
 /* end of room  */
 /*====================
         FOOTER
@@ -485,8 +554,8 @@ footer .footer_copyright {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 500px;
-  height: 250px;
+  width: 600px;
+  padding-bottom: 40px;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   border: 1px;
@@ -774,12 +843,12 @@ footer .footer_copyright {
 
  .works-step p {
   margin-bottom: 25px;
-  padding-top: 2.2%;
+  padding-top: 2%;
 }
 
 .works-step div {
   
-  margin-right: 25px;
+  margin-right: 20px;
   margin-bottom: 1px;
 }
 

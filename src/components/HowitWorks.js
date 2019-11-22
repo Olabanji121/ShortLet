@@ -9,13 +9,13 @@ const HowitWorks = () => {
   return (
       <section className="mt-5">
        <Title title={"HOW IT WORKS"} styleClass={"section-title"} />
-    <div className="how-center ">
+    <div className="how-center container ">
         
-    <div class="row">
+    <div class="row ">
              <div className="col text-center">
         <img src={Iphone} alt="phone view" className="phone" />
       </div>
-            <div className="col steps-box">
+            <div className="col col-sm-6 steps-box">
                 <div className="works-step">
                     <div>1</div>
                     <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo laborum tempore consequuntur </p>
@@ -30,7 +30,7 @@ const HowitWorks = () => {
                 </div>
                 <div className="works-step">
                     <div>4</div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo laborum tempore consequuntur magni </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo laborum tempore consequuntur</p>
                 </div>
 
                 <a href="/" className="btn-app"><img src={Ios} alt="Ios app download"  className="ios-img"/></a>
