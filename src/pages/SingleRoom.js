@@ -44,7 +44,8 @@ export default class SingleRoomComp extends Component {
       extras,
       pets,
       images,
-      wifi
+      wifi,
+      location
     } = room;
 
     // const [bgImg, ...restImg] = images
@@ -83,7 +84,9 @@ export default class SingleRoomComp extends Component {
             </article>
             <article className="info">
               <h3>info</h3>
+              <h6>{`Location: ${location}`}</h6>
               <h6>
+                <span>price:</span>
                 &#8358;
                 {parseFloat(price)
                   .toFixed(2)
@@ -103,8 +106,8 @@ export default class SingleRoomComp extends Component {
         <section className="room-extras">
           <h4>Extras</h4>
           <ul className="extras">
-            {extras.map((extra, index)=>{
-            return <li key={index}> {extra}</li>
+            {extras.map((extra, index) => {
+              return <li key={index}> {extra}</li>;
             })}
           </ul>
         </section>

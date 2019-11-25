@@ -4,8 +4,8 @@ import defaultImg from "../resources/images/details-1.jpeg";
 import PropTypes from 'prop-types'
 
 
-const RoomComp = ({ featuredRoom }) => {
-  const { name, slug, images, price, location } = featuredRoom;
+const RoomComp = ({ room }) => {
+  const { name, slug, images, price, location } = room;
     console.log(price);
     
   return (

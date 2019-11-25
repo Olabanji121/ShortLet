@@ -10,9 +10,9 @@ export default class FeaturedRooms extends Component {
     static contextType = RoomContext
     render() {
 
-        const {loading, featuredRooms} = this.context
-        let rooms = featuredRooms.map(featuredRoom =>{
-            return <RoomComp key={featuredRoom.id} featuredRoom={featuredRoom}/>
+        let {loading, featuredRooms: rooms} = this.context
+         rooms = rooms.map(room =>{
+            return <RoomComp key={room.id} room={room}/>
         })
         
         

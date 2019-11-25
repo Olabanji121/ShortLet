@@ -30,6 +30,7 @@ const Data = [
       pets: false,
       wifi: false,
       featured: false,
+      location: "ajah",
       description:
         "Street art edison bulb gluten-free, tofu try-hard lumbersexual brooklyn tattooed pickled chambray. Actually humblebrag next level, deep v art party wolf tofu direct trade readymade sustainable hell of banjo. Organic authentic subway tile cliche palo santo, street art XOXO dreamcatcher retro sriracha portland air plant kitsch stumptown. Austin small batch squid gastropub. Pabst pug tumblr gochujang offal retro cloud bread bushwick semiotics before they sold out sartorial literally mlkshk. Vaporware hashtag vice, sartorial before they sold out pok pok health goth trust fund cray.",
       extras: [
@@ -87,6 +88,7 @@ const Data = [
       pets: false,
       wifi: false,
       featured: false,
+      location: "Asokoro",
       description:
         "Street art edison bulb gluten-free, tofu try-hard lumbersexual brooklyn tattooed pickled chambray. Actually humblebrag next level, deep v art party wolf tofu direct trade readymade sustainable hell of banjo. Organic authentic subway tile cliche palo santo, street art XOXO dreamcatcher retro sriracha portland air plant kitsch stumptown. Austin small batch squid gastropub. Pabst pug tumblr gochujang offal retro cloud bread bushwick semiotics before they sold out sartorial literally mlkshk. Vaporware hashtag vice, sartorial before they sold out pok pok health goth trust fund cray.",
       extras: [
@@ -144,6 +146,7 @@ const Data = [
       pets: true,
       wifi: false,
       featured: false,
+      location: "ikoyi",
       description:
         "Street art edison bulb gluten-free, tofu try-hard lumbersexual brooklyn tattooed pickled chambray. Actually humblebrag next level, deep v art party wolf tofu direct trade readymade sustainable hell of banjo. Organic authentic subway tile cliche palo santo, street art XOXO dreamcatcher retro sriracha portland air plant kitsch stumptown. Austin small batch squid gastropub. Pabst pug tumblr gochujang offal retro cloud bread bushwick semiotics before they sold out sartorial literally mlkshk. Vaporware hashtag vice, sartorial before they sold out pok pok health goth trust fund cray.",
       extras: [
@@ -201,6 +204,7 @@ const Data = [
       pets: true,
       wifi: true,
       featured: false,
+      location: "ph",
       description:
         "Street art edison bulb gluten-free, tofu try-hard lumbersexual brooklyn tattooed pickled chambray. Actually humblebrag next level, deep v art party wolf tofu direct trade readymade sustainable hell of banjo. Organic authentic subway tile cliche palo santo, street art XOXO dreamcatcher retro sriracha portland air plant kitsch stumptown. Austin small batch squid gastropub. Pabst pug tumblr gochujang offal retro cloud bread bushwick semiotics before they sold out sartorial literally mlkshk. Vaporware hashtag vice, sartorial before they sold out pok pok health goth trust fund cray.",
       extras: [
@@ -258,6 +262,7 @@ const Data = [
       pets: false,
       wifi: false,
       featured: false,
+      location: "ikoyi",
       description:
         "Street art edison bulb gluten-free, tofu try-hard lumbersexual brooklyn tattooed pickled chambray. Actually humblebrag next level, deep v art party wolf tofu direct trade readymade sustainable hell of banjo. Organic authentic subway tile cliche palo santo, street art XOXO dreamcatcher retro sriracha portland air plant kitsch stumptown. Austin small batch squid gastropub. Pabst pug tumblr gochujang offal retro cloud bread bushwick semiotics before they sold out sartorial literally mlkshk. Vaporware hashtag vice, sartorial before they sold out pok pok health goth trust fund cray.",
       extras: [
@@ -315,6 +320,7 @@ const Data = [
       pets: false,
       wifi: false,
       featured: false,
+      location: "VI",
       description:
         "Street art edison bulb gluten-free, tofu try-hard lumbersexual brooklyn tattooed pickled chambray. Actually humblebrag next level, deep v art party wolf tofu direct trade readymade sustainable hell of banjo. Organic authentic subway tile cliche palo santo, street art XOXO dreamcatcher retro sriracha portland air plant kitsch stumptown. Austin small batch squid gastropub. Pabst pug tumblr gochujang offal retro cloud bread bushwick semiotics before they sold out sartorial literally mlkshk. Vaporware hashtag vice, sartorial before they sold out pok pok health goth trust fund cray.",
       extras: [
@@ -372,6 +378,7 @@ const Data = [
       pets: true,
       wifi: false,
       featured: false,
+      location: "lekki",
       description:
         "Street art edison bulb gluten-free, tofu try-hard lumbersexual brooklyn tattooed pickled chambray. Actually humblebrag next level, deep v art party wolf tofu direct trade readymade sustainable hell of banjo. Organic authentic subway tile cliche palo santo, street art XOXO dreamcatcher retro sriracha portland air plant kitsch stumptown. Austin small batch squid gastropub. Pabst pug tumblr gochujang offal retro cloud bread bushwick semiotics before they sold out sartorial literally mlkshk. Vaporware hashtag vice, sartorial before they sold out pok pok health goth trust fund cray.",
       extras: [
@@ -425,7 +432,7 @@ const Data = [
       type: "double",
       price: 40000,
       size: 500,
-      location: " ikeja",
+      location: "ikeja",
       capacity: 2,
       pets: true,
       wifi: true,
@@ -483,7 +490,7 @@ const Data = [
       type: "family",
       price: 30000,
       size: 500,
-      location: " lekki",
+      location: "lekki",
       capacity: 3,
       pets: false,
       wifi: false,
@@ -540,7 +547,7 @@ const Data = [
       slug: "family-basic",
       type: "family",
       price: 35000,
-      location: " ikoyi",
+      location: "ikoyi",
       size: 550,
       capacity: 4,
       pets: false,
@@ -657,7 +664,7 @@ const Data = [
       type: "family",
       price: 50000,
       size: 700,
-      location: " VGC",
+      location: "VGC",
       capacity: 6,
       pets: true,
       wifi: true,
@@ -783,4 +790,19 @@ const GetRoom = slug => {
   const room = tempRooms.find(room => room.slug === slug);
   return room;
 };
+
+const handleChange =(e)=>{
+  const target = e.target
+  const value = e.type === 'checkbox'? target.checked: target.value
+  const name = e.target.name
+  // console.log(`this is type: ${type},this is name: ${name}, this is value: ${value}`);
+  this.setState({
+    [name]: value
+  },this.filterRooms)
+}
+
+const filterRooms = ()=>{
+  console.log("hello");
+  
+}
 export { Data, FormatData, GetRoom };
