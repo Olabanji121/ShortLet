@@ -4,6 +4,7 @@ import Featured from "../components/features/index";
 import FeaturedRooms from "../components/FeaturedRooms";
 import HowitWorks from '../components/HowitWorks';
 
+
 const Home = () => {
   return (
     <>
@@ -15,7 +16,7 @@ const Home = () => {
         <FeaturedRooms/>
         <Services/>
         <HowitWorks/>
-       
+        
       </div>
     </>
   );

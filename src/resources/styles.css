@@ -114,6 +114,7 @@ header .header_logo_venue {
 .roomsHero {
   background-image: url("./images/room-2.jpeg");
   min-height: 65vh;
+  
 }
 
 /* End of Hero */
@@ -140,7 +141,7 @@ header .header_logo_venue {
 .banner div {
   width: 10rem;
   height: 5px;
-  background: #af9a7d;
+  background: #d2603a;
   margin: 1.7rem auto;
 }
 .banner p {
@@ -409,6 +410,100 @@ a:hover {
 
 a:visited {
   outline: none;
+}
+
+/* single room*/
+
+.single-room {
+  padding: 5rem 0 0 0;
+}
+ .single-room-images {
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  
+}
+.single-room-images img {
+  max-width: 90%;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  /* display: block; */
+} 
+
+.single-room-info {
+  width: 80vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 2rem auto;
+}
+.desc,
+.info {
+  margin: 1rem 0;
+  letter-spacing: 3px;
+  font-family: "Lato", "Arial", sans-serif;
+  line-height: 2px;
+}
+.desc h3 {
+  text-transform: capitalize;
+  letter-spacing: 3px;
+}
+.desc p {
+  line-height: 1.5;
+}
+.info h3,
+.info h6 {
+  text-transform: capitalize;
+  letter-spacing: 3px;
+}
+
+.info h6 {
+  font-weight: 300;
+}
+.room-extras {
+  width: 80vw;
+  margin: 0 auto 3rem auto;
+}
+.room-extras h6 {
+  text-transform: capitalize;
+  letter-spacing: 3px;
+}
+.extras {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  grid-column-gap: 2rem;
+  grid-row-gap: 1rem;
+  letter-spacing: 3px;
+  font-family: "Lato", "Arial", sans-serif;
+}
+
+ul{
+  padding: 0;
+}
+
+li{
+  list-style: circle;
+  
+
+}
+@media screen and (min-width: 992px) {
+
+  .single-room-info,
+  .room-extras {
+    width: 95vw;
+    max-width: 1170px;
+  }
+  .single-room-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2rem;
+  }
+  .info {
+    padding-left: 3rem;
+  }
 }
 
 /* how it works  */
