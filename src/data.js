@@ -24,7 +24,7 @@ const Data = [
       name: "single economy",
       slug: "single-economy",
       type: "single",
-      price: 100,
+      price: 10000,
       size: 200,
       capacity: 1,
       pets: false,
@@ -82,7 +82,7 @@ const Data = [
       name: "single basic",
       slug: "single-basic",
       type: "single",
-      price: 150,
+      price: 15000,
       size: 250,
       capacity: 1,
       pets: false,
@@ -140,7 +140,7 @@ const Data = [
       name: "single standard",
       slug: "single-standard",
       type: "single",
-      price: 250,
+      price: 25000,
       size: 300,
       capacity: 1,
       pets: true,
@@ -198,7 +198,7 @@ const Data = [
       name: "single deluxe",
       slug: "single-deluxe",
       type: "single",
-      price: 300,
+      price: 30000,
       size: 400,
       capacity: 1,
       pets: true,
@@ -256,7 +256,7 @@ const Data = [
       name: "double economy",
       slug: "double-economy",
       type: "double",
-      price: 200,
+      price: 20000,
       size: 300,
       capacity: 2,
       pets: false,
@@ -314,7 +314,7 @@ const Data = [
       name: "double basic",
       slug: "double-basic",
       type: "double",
-      price: 250,
+      price: 25000,
       size: 350,
       capacity: 2,
       pets: false,
@@ -372,7 +372,7 @@ const Data = [
       name: "double standard",
       slug: "double-standard",
       type: "double",
-      price: 300,
+      price: 30000,
       size: 400,
       capacity: 2,
       pets: true,
@@ -791,18 +791,18 @@ const GetRoom = slug => {
   return room;
 };
 
-const handleChange =(e)=>{
-  const target = e.target
-  const value = e.type === 'checkbox'? target.checked: target.value
-  const name = e.target.name
-  // console.log(`this is type: ${type},this is name: ${name}, this is value: ${value}`);
-  this.setState({
-    [name]: value
-  },this.filterRooms)
-}
+// const handleChange =(e)=>{
+//   const target = e.target
+//   const value = e.type === 'checkbox'? target.checked: target.value
+//   const name = e.target.name
+//   console.log(`this is type: ${type},this is name: ${name}, this is value: ${value}`);
+//   this.setState({
+//     [name]: value
+//   },this.filterRooms)
+// }
 
-const filterRooms = ()=>{
-  console.log("hello");
+// const filterRooms = ()=>{
+//   console.log("hello");
   
-}
+// }
 export { Data, FormatData, GetRoom };

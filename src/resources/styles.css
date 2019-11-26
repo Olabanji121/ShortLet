@@ -110,6 +110,21 @@ header .header_logo_venue {
   margin-top: 3rem;
 }
 
+.text-small{
+  font-size: 15px;
+}
+
+.text-color{
+  color: #d2603a;
+}
+
+.center {
+  padding: 113px 0;
+  /* border: 3px solid green; */
+  text-align: center;
+}
+/* login */
+
 /* Hero */
 .defaultHero,
 .roomsHero {

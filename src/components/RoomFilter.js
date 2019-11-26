@@ -20,10 +20,9 @@ const RoomFilter = ({ rooms }) => {
     minPrice,
     maxPrice,
     location,
-    pets,
     handleChange
   } = context;
-//   types///
+  //   types///
   //   get unique types
   let types = getUnique(rooms, "type");
   // get all types
@@ -53,7 +52,7 @@ const RoomFilter = ({ rooms }) => {
   // capacity //
   let capacities = getUnique(rooms, "capacity");
   // get all types
-//   capacities = ["all", ...capacities];
+  //   capacities = ["all", ...capacities];
   // map to jsx
   capacities = capacities.map((item, index) => {
     return (
@@ -96,7 +95,7 @@ const RoomFilter = ({ rooms }) => {
         {/* end location */}
         {/* capacity */}
         <div className="form-group2">
-          <label htmlFor="capacity">Number of Allowed Occupant</label>
+          <label htmlFor="capacity">Number of Occupant</label>
           <select
             name="capacity"
             id="capacity"
@@ -109,6 +108,11 @@ const RoomFilter = ({ rooms }) => {
         </div>
         {/* end capacity */}
         {/*price */}
+
+        <div className="form-group2">
+          <label htmlFor="price">room price &#8358;{price}</label>
+          <input type="range" name="price" min={minPrice} max={maxPrice} id="price" value={price} onChange={handleChange} className="form-control2"/>
+        </div>
         {/* endprice */}
       </form>
     </section>

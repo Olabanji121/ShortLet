@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 const RoomComp = ({ room }) => {
   const { name, slug, images, price, location } = room;
-    console.log(price);
+    // console.log(price);
     
   return (
     <article className="rm">
@@ -17,7 +17,7 @@ const RoomComp = ({ room }) => {
 						.toFixed(2)
 						.toString()
 						.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h6>
-          <p>/ per day</p>
+          <p> per day</p>
         </div>
         <Link to={`/rooms/${slug}`} className="btn-primary2 room-link">
           Details

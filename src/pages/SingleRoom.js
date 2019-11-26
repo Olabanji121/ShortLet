@@ -100,6 +100,9 @@ export default class SingleRoomComp extends Component {
               </h6>
               <h6>{pets ? `pets allowed` : ` no pets allowed`}</h6>
               <h6>{wifi && "free Wifi"}</h6>
+              <Link to={`/booking/${this.state.slug}`} className="text-uppercase btn btn-primary2  mt-3">
+              Book now
+            </Link>
             </article>
           </div>
         </section>

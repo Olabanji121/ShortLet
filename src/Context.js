@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Data, FormatData, GetRoom} from "./data";
+import {  FormatData, GetRoom} from "./data";
 
 // with this i have access to provider and consumer
 const RoomContext = React.createContext();
@@ -31,13 +31,14 @@ class RoomProvider extends Component {
   
   filterRooms = ()=>{
     let{
-      rooms, type, location, price, pets, minPrice, maxPrice,capacity 
+      rooms, type, location, price,capacity 
     } = this.state
 
     // all the rooms
     let tempRooms = [...rooms];
     // transform value
     capacity = parseInt(capacity)
+    price = parseInt(price)
     // filter by type 
     if(type !== 'all'){
       tempRooms = tempRooms.filter(room => room.type === type)
@@ -50,14 +51,18 @@ class RoomProvider extends Component {
     if(location !== 'all'){
       tempRooms = tempRooms.filter(room=>room.location === location)
     }
+    // filter by price 
+    tempRooms =  tempRooms.filter(room=> room.price <= price)
+    // change state
     this.setState({
         sortedRooms: tempRooms
     })
   }
    
   componentDidMount(){
-    let maxPrice = Math.max(...this.state.rooms.map(item => item.price))
-    this.setState({...this.state, loading: false,  sortedRooms: [...FormatData()], price:maxPrice})
+    let maxPriceUI = Math.max(...this.state.rooms.map(item => item.price))
+    this.setState({...this.state, loading: false,  sortedRooms: [...FormatData()], price:maxPriceUI, maxPrice:maxPriceUI})
+    
   }
 
   render() {
