@@ -1,17 +1,35 @@
 import React, { Component } from "react";
 import { Form, Checkbox } from "semantic-ui-react";
-
+import Firebase from '../config/firebase'
+import { withRouter } from "react-router";
 export class Register extends Component {
-  state = {
-    email: "",
-    password: "",
-    firstname:"",
-    lastname:"",
-    conpassword:""
 
-  };
-  handleSubmit = e => {
-    e.preventDefault();
+  constructor(props){
+    super(props);
+    this.state = {
+      slug: this.props.match.params.slug,
+      email: "",
+      password: "",
+      firstname:"",
+      lastname:"",
+      conpassword:""
+  
+    };
+  }
+  
+  handleSubmit = async(e) => {
+    e.preventDefault()
+    const {email, password, firstname, lastname, conpassword}= this.state;
+    const {router} = this.props
+
+    try {
+      await Firebase.auth.createUserWithEmailAndPassword(email, password, firstname,lastname,conpassword)
+        router.history.push(`/booking/${this.state.slug}`)
+    } catch (err) {
+      alert(err.message);
+      
+    }
+    
     console.log(this.state);
   };
 
@@ -73,4 +91,4 @@ export class Register extends Component {
   }
 }
 
-export default Register;
+export default withRouter(Register) ;

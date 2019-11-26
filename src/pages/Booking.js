@@ -161,7 +161,7 @@ export default class Booking extends Component {
                   label="I agree to the Terms and Conditions" id="terms"  onClick={this.handleCheck}
                 />
                 <div className="field mx-auto">
-                  <button className="ui orange button btn-block text-capitalize " >
+                  <button className="text-uppercase  btn-primary2 btn-block " >
                     book now
                   </button>
                 </div>

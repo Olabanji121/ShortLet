@@ -14,8 +14,8 @@ body {
 .bck_white {
   background: #ffffff;
 }
-.bck_red {
-  background: #ff4800;
+.back_orange {
+  background: #d2603a;
 }
 .bck_yellow {
   background: #ffa800;
@@ -1020,19 +1020,21 @@ footer .footer_copyright {
 ======================*/
 
 .location_wrapper {
+  padding-top: 75px !important;
   position: relative;
 }
 
 .location_tag {
+
   position: absolute;
-  bottom: 0px;
+  top: 0px;
   width: 100%;
 }
 .location_tag div {
   background: #2c2c2c;
   color: #ffffff;
   text-transform: uppercase;
-  width: 220px;
+  width: 500px;
   margin: 0 auto;
   font-size: 29px;
   padding: 15px 20px;

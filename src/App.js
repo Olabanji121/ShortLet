@@ -11,6 +11,7 @@ import Header from './components/header_footer/Header';
 import Booking from "./pages/Booking";
 
 
+// Firebase.init()
 export default class App extends Component {
   render() {
     return (

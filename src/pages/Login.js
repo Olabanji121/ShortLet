@@ -1,13 +1,24 @@
 import React, { Component } from "react";
 import { Form } from "semantic-ui-react";
+import Firebase from '../config/firebase'
 
 export class Login extends Component {
   state = {
     email: '',
     password: '',
   };
-  handleSubmit = e => {
+  handleSubmit = async(e) => {
     e.preventDefault()
+    const {email, password}= this.state;
+
+    try {
+      await Firebase.auth.signInWithEmailAndPassword(email, password)
+
+    } catch (err) {
+      console.error(err.message);
+      
+    }
+    
     console.log(this.state);
   };
 
@@ -16,6 +27,9 @@ export class Login extends Component {
         [e.target.id]: e.target.value
       })
   };
+
+
+ 
   render() {
     return (
       
