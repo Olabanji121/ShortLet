@@ -55,7 +55,7 @@ export default class Booking extends Component {
   render() {
     const { getRoom } = this.context;
     let room = getRoom(this.state.slug);
-    // console.log(getRoom(this.state.slug));
+    console.log(getRoom(this.state.slug));
     // console.log(room);
     const { name, capacity, price, images } = room;
     // console.log(
@@ -67,7 +67,7 @@ export default class Booking extends Component {
     
     return (
       <BookHero
-        img={images[0] || this.state.defaultImg}
+        img={images[3] || this.state.defaultImg}
         // styleClass="roomsHero"
       >
         <div className="container ">

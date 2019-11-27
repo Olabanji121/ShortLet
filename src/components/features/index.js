@@ -24,9 +24,9 @@ const Featured = () => {
           </div>
          <div className="login ml-3">
          
-         <a className="text-uppercase  text-light btn btn-primary3 ft2 mt-3" button onClick={() =>scrollToElement('topPicks')}>
+         <button className="text-uppercase  text-light btn btn-primary3 ft2 mt-3"  onClick={() =>scrollToElement('topPicks')}>
           top picks
-        </a>
+        </button>
             
          </div> 
         

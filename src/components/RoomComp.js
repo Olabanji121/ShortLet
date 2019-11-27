@@ -11,7 +11,7 @@ const RoomComp = ({ room }) => {
   return (
     <article className="rm">
       <div className="img-container">
-        <img src={images[0] || defaultImg} alt="single room " />
+        <img src={images[3] || defaultImg} alt="single room " />
         <div className="price-top">
           <h6>&#8358;{parseFloat(price)
 						.toFixed(2)

@@ -48,14 +48,14 @@ export default class SingleRoomComp extends Component {
       location
     } = room;
 
-    // const [bgImg, ...restImg] = images
+    const [bgImg, ...restImg] = images
 
-    // console.log(restImg);
+    console.log(restImg);
 
     return (
       <>
         <StyledHero
-          img={images[0] || this.state.defaultImg}
+          img={images[3] || this.state.defaultImg}
           styleClass="roomsHero"
         >
           <Banner title={`${name} room`}>

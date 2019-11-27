@@ -11,7 +11,7 @@ const getUnique = (items, value) => {
 };
 const RoomFilter = ({ rooms }) => {
   const context = useContext(RoomContext);
-  console.log(context);
+  // console.log(context);
 
   const {
     type,

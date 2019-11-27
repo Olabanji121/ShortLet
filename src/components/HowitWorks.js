@@ -11,7 +11,7 @@ const HowitWorks = () => {
        <Title title={"HOW IT WORKS"} styleClass={"section-title"} />
     <div className="how-center container ">
         
-    <div class="row ">
+    <div className="row ">
              <div className="col text-center">
         <img src={Iphone} alt="phone view" className="phone" />
       </div>
