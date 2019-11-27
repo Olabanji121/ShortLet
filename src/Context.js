@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import {  FormatData, GetRoom} from "./data";
+// import items from "./data";
+import Client from "./Contentful";
 
 // with this i have access to provider and consumer
 const RoomContext = React.createContext();
 
 class RoomProvider extends Component {
   state = {
-    rooms: [...FormatData()],
+    rooms: [],
     sortedRooms: [],
-    featuredRooms: FormatData().filter(room => room.featured === true),
+    featuredRooms: [],
     loading: true,
     isLogin: true,
     type: 'all',
@@ -19,6 +20,7 @@ class RoomProvider extends Component {
     location:'all',
     pets: false
   };
+  
    handleChange =(e)=>{
     // const target = e.target
     const value = e.target.value
@@ -58,19 +60,79 @@ class RoomProvider extends Component {
         sortedRooms: tempRooms
     })
   }
-   
-  componentDidMount(){
-    let maxPriceUI = Math.max(...this.state.rooms.map(item => item.price))
-    this.setState({...this.state, loading: false,  sortedRooms: [...FormatData()], price:maxPriceUI, maxPrice:maxPriceUI})
-    
+   // getData
+  getData = async () => {
+    try {
+      let response = await Client.getEntries({
+        content_type: "shortLetNgData",
+        // order: "sys.createdAt"
+        order: "-fields.price"
+      });
+      let rooms = this.formatData(response.items);
+      let featuredRooms = rooms.filter(room => room.featured === true);
+      let maxPrice = Math.max(...rooms.map(item => item.price));
+      let maxSize = Math.max(...rooms.map(item => item.size));
+
+      this.setState({
+        rooms,
+        featuredRooms,
+        sortedRooms: rooms,
+        loading: false,
+        price: maxPrice,
+        maxPrice,
+        maxSize
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  componentDidMount() {
+    this.getData();
   }
+  // componentDidMount() {
+  //   // this.getData();
+  //   let rooms = this.formatData(items);
+  //   let featuredRooms = rooms.filter(room => room.featured === true);
+  //   let maxPrice = Math.max(...rooms.map(item => item.price));
+  //   // let maxSize = Math.max(...rooms.map(item => item.size));
+  //   this.setState({
+  //     rooms,
+  //     featuredRooms,
+  //     sortedRooms: rooms,
+  //     loading: false,
+  //     price: maxPrice,
+  //     maxPrice,
+  //     // maxSize
+  //   });
+  // }
+  formatData=(arryItems)=>{
+    let tempItems = arryItems.map(arryItem =>{
+        let id = arryItem.sys.id
+        let images = arryItem.fields.images.map(image => image.fields.file.url)
+
+        let rooms = {...arryItem.fields, images, id}
+
+        return rooms
+    });
+
+    return tempItems
+
+}
+
+getRoom=(slug) =>{
+    let tempRooms = [...this.state.rooms];
+    const room = tempRooms.find(room=> room.slug === slug)
+    return room;
+}
+
 
   render() {
     return (
       <RoomContext.Provider
         value={{
           ...this.state,
-          getRoom: GetRoom,
+          getRoom: this.getRoom,
           setLogin() {
             this.setState({ ...this.state, isLogin: true });
           },

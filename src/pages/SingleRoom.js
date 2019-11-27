@@ -55,7 +55,7 @@ export default class SingleRoomComp extends Component {
     return (
       <>
         <StyledHero
-          img={images[0] || this.state.defaultImg}
+          img={images[3] || this.state.defaultImg}
           styleClass="roomsHero"
         >
           <Banner title={`${name} room`}>

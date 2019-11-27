@@ -15,7 +15,7 @@ import img10 from "./resources/images/room-10.jpeg";
 import img11 from "./resources/images/room-11.jpeg";
 import img12 from "./resources/images/room-12.jpeg";
 
-const Data = [
+export default[
   {
     sys: {
       id: "1"
@@ -772,24 +772,24 @@ const Data = [
   }
 ];
 
-const FormatData = () => {
-  let tempItems = Data.map(arryItem => {
-    let id = arryItem.sys.id;
-    let images = arryItem.fields.images.map(image => image.fields.file.url);
+// const FormatData = () => {
+//   let tempItems = Data.map(arryItem => {
+//     let id = arryItem.sys.id;
+//     let images = arryItem.fields.images.map(image => image.fields.file.url);
 
-    let rooms = { ...arryItem.fields, images, id };
+//     let rooms = { ...arryItem.fields, images, id };
 
-    return rooms;
-  });
+//     return rooms;
+//   });
 
-  return tempItems;
-};
+//   return tempItems;
+// };
 
-const GetRoom = slug => {
-  let tempRooms = FormatData(Data);
-  const room = tempRooms.find(room => room.slug === slug);
-  return room;
-};
+// const GetRoom = slug => {
+//   let tempRooms = FormatData(Data);
+//   const room = tempRooms.find(room => room.slug === slug);
+//   return room;
+// };
 
 // const handleChange =(e)=>{
 //   const target = e.target
@@ -805,4 +805,4 @@ const GetRoom = slug => {
 //   console.log("hello");
   
 // }
-export { Data, FormatData, GetRoom };
+// export { Data, FormatData, GetRoom };

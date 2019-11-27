@@ -67,7 +67,7 @@ export default class Booking extends Component {
     
     return (
       <BookHero
-        img={images[0] || this.state.defaultImg}
+        img={images[3] || this.state.defaultImg}
         // styleClass="roomsHero"
       >
         <div className="container ">
