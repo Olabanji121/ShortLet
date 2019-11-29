@@ -1027,19 +1027,27 @@ footer .footer_copyright {
 .location_tag {
 
   position: absolute;
-  top: 0px;
+  top: 25px;
   width: 100%;
 }
 .location_tag div {
-  background: #2c2c2c;
+  background: #2c2c2c !important;
   color: #ffffff;
   text-transform: uppercase;
-  width: 500px;
+  width: 30%;
   margin: 0 auto;
-  font-size: 29px;
-  padding: 15px 20px;
+  font-size: 18px;
+  padding: 0 ;
   text-align: center;
 }
+
+
+.cen{
+  background: #2c2c2c !important;
+
+
+}
+
 
 
 
