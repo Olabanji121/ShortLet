@@ -22,10 +22,9 @@ class RoomProvider extends Component {
   };
   
    handleChange =(e)=>{
-    // const target = e.target
+    
     const value = e.target.value
     const name = e.target.name
-    // console.log(`this is type: ${target},this is name: ${name}, this is value: ${value}`);
     this.setState({
       [name]: value
     },this.filterRooms)
@@ -90,22 +89,7 @@ class RoomProvider extends Component {
   componentDidMount() {
     this.getData();
   }
-  // componentDidMount() {
-  //   // this.getData();
-  //   let rooms = this.formatData(items);
-  //   let featuredRooms = rooms.filter(room => room.featured === true);
-  //   let maxPrice = Math.max(...rooms.map(item => item.price));
-  //   // let maxSize = Math.max(...rooms.map(item => item.size));
-  //   this.setState({
-  //     rooms,
-  //     featuredRooms,
-  //     sortedRooms: rooms,
-  //     loading: false,
-  //     price: maxPrice,
-  //     maxPrice,
-  //     // maxSize
-  //   });
-  // }
+  
   formatData=(arryItems)=>{
     let tempItems = arryItems.map(arryItem =>{
         let id = arryItem.sys.id
@@ -151,16 +135,6 @@ getRoom=(slug) =>{
 
 const RoomConsumer = RoomContext.Consumer;
 
-// HOC
 
-// export const  withRoomConsumer= (Component)=>{
-
-//   return  function ConsumerWrapper(props){
-//       return <RoomConsumer>
-//         {value=> <Component {...props} context={value}/>}
-//       </RoomConsumer>
-//   }
-
-// }
 
 export { RoomProvider, RoomConsumer, RoomContext };

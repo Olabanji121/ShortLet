@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Form } from "semantic-ui-react";
-import Firebase from '../config/firebase'
 
 export class Login extends Component {
   state = {
@@ -11,13 +10,6 @@ export class Login extends Component {
     e.preventDefault()
     const {email, password}= this.state;
 
-    try {
-      await Firebase.auth.signInWithEmailAndPassword(email, password)
-
-    } catch (err) {
-      console.error(err.message);
-      
-    }
     
     console.log(this.state);
   };
