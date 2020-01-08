@@ -11,18 +11,6 @@ const signToken = id => {
 
   const createSendToken = (user, statusCode, res) => {
     const token = signToken(user.id);
-  
-    const cookieOptions = {
-      expires: new Date(
-        Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 60 * 60 * 1000
-      ),
-  
-      httpOnly: true
-    };   
-
-    if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
-
-    res.cookie('jwt', token, cookieOptions);
     // remove password from output
     user.password = undefined;
     res.status(statusCode).json({
@@ -93,19 +81,22 @@ exports.signup = async (req, res, next) => {
     }
   };
   
+  exports.getUser = async(req,res)=>{
+    try {
+      const user = await User.findById(req.user.id).select("-password");
+      res.json(user);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send("Server Error...");
+    }
+  }
 
 
   exports.protect = async (req, res, next) => {
     // 1) Get the token  and check if it there
-    let token;
-    if (
-      req.headers.authorization &&
-      req.headers.authorization.startsWith('Bearer')
-    ) {
-      token = req.headers.authorization.split(' ')[1];
-    } else if (req.cookies.jwt) {
-      token = req.cookies.jwt;
-    } else {
+    const token = req.header("x-auth-token");
+
+    if(!token){
       return res.status(401).json({ msg: 'No token, authorization denied' });
     }
   

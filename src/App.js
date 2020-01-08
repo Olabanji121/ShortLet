@@ -15,9 +15,9 @@ import setAuthToken from './utills/setAuthToken'
 // Firebase.init()
 
 
-// if(localStorage.token){
-//   setAuthToken(localStorage.token)
-// }
+if(localStorage.token){
+  setAuthToken(localStorage.token)
+}
 
 
 export default class App extends Component {
