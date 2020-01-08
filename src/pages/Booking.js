@@ -1,15 +1,19 @@
-import React, { Component } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Form, Checkbox, TextArea } from "semantic-ui-react";
 import { RoomContext } from "../Context";
+import AuthContext from '../context/auth/AuthContext'
 import BookHero from "../components/BookHero";
+import AlertContext from '../context/alert/AlertContext'
 
-export default class Booking extends Component {
-  constructor(props) {
-    super(props);
-    // console.log(this.props);
-    this.state = {
-      slug: this.props.match.params.slug,
+ const Booking = (props)=> {
+  
+  const alertContext = useContext(AlertContext)
+  const authContext = useContext(AuthContext)
+  const rooContext = useContext(RoomContext)
+  
+  const [book, setBook] = useState({
+    slug: props.match.params.slug,
       email: "",
       fullname: "",
       phonenumber: "",
@@ -19,23 +23,30 @@ export default class Booking extends Component {
       more: "",
       taxi: false,
       cleaning: false,
-      terms: false
-    };
-  }
+      terms: false,
+      roomname: ""
 
-  handleSubmit = e => {
+  });
+
+  const {setAlert} = alertContext
+  const {register, error, clearError, isAuthenticated} = authContext
+  const { slug, email, fullname, totalPrice, city, more, taxi, cleaning, terms, roomname} = book
+  const { getRoom } = rooContext;
+  
+  let room = getRoom(slug); 
+  
+
+  const handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    console.log(book);
   };
 
-  handleChange = e => {
-    this.setState({
-      [e.target.id]: e.target.value
-    });
+  const handleChange = e => {
+    setBook({ ...book, [e.target.id]: e.target.value });
   };
 
-  handleCheck = e => {
-    this.setState({
+  const handleCheck = e => {
+    setBook({ ...book,
       terms: true,
       city: true,
       taxi: true,
@@ -43,30 +54,22 @@ export default class Booking extends Component {
     });
   };
 
-  totalamount = (price, days) => {
+  const totalamount = (price, days) => {
     let total = days * price;
 
     return total;
   };
 
-  static contextType = RoomContext;
-  render() {
-    const { getRoom } = this.context;
-    let room = getRoom(this.state.slug);
+ 
   
 
-    // console.log(getRoom(this.state.slug));
-    // console.log(room);
+    
     const { name, capacity, price, images } = room;
-    // console.log(
-    //   `name:${name} capacity:${capacity} price:${price} image:${images[0]} location:${location}`
-    // );
-
-    // console.log(this.state);
+    
 
     return (
       <BookHero
-        img={images[3] || this.state.defaultImg}
+        img={images[3] }
         // styleClass="roomsHero"
       >
         <div className="container ">
@@ -97,7 +100,7 @@ export default class Booking extends Component {
                 Total Payable Amount (Apartment only):{" "}
                 <span className="text-color">
                   &#8358;
-                  {parseFloat(this.state.totalPrice)
+                  {parseFloat(totalPrice)
                     .toFixed(2)
                     .toString()
                     .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -105,7 +108,7 @@ export default class Booking extends Component {
               </p>
 
               <Link
-                to={`/rooms/${this.state.slug}`}
+                to={`/rooms/${slug}`}
                 className="text-uppercase btn btn-primary2 "
               >
                 Back to Apartment
@@ -115,14 +118,25 @@ export default class Booking extends Component {
               className=" col-10 col-sm-6 mx-auto bg-light pb-5"
               style={{ paddingTop: "5%" }}
             >
-              <Form onSubmit={this.handleSubmit} className="ui form">
+              <Form onSubmit={handleSubmit} className="ui form">
                 <div className="field ">
+                  <Form.Field>
+                    <label htmlFor="roomname">Room Name :</label>
+                    <input
+                      type="text"
+                      id="roomname"
+                      value={name}
+                      onChange={e=> setBook({
+                        ...book, roomname: name
+                      })}
+                    />
+                  </Form.Field>
                   <Form.Field>
                     <label htmlFor="fullname">Full Name :</label>
                     <input
                       type="text"
                       id="fullname"
-                      onChange={this.handleChange}
+                      onChange={handleChange}
                     />
                   </Form.Field>
                   <Form.Field>
@@ -130,7 +144,7 @@ export default class Booking extends Component {
                     <input
                       type="email"
                       id="email"
-                      onChange={this.handleChange}
+                      onChange={handleChange}
                     />
                   </Form.Field>
                   <Form.Field>
@@ -138,7 +152,7 @@ export default class Booking extends Component {
                     <input
                       type="number"
                       id="phonenumber"
-                      onChange={this.handleChange}
+                      onChange={handleChange}
                     />
                   </Form.Field>
                   <Form.Field>
@@ -148,9 +162,9 @@ export default class Booking extends Component {
                       id="numberOfDays"
                       onChange={e => {
                         let days = e.target.value;
-                        let total = this.totalamount(price, days);
-                        this.setState({
-                          ...this.state,
+                        let total = totalamount(price, days);
+                        setBook({
+                          ...book,
                           totalPrice: total,
                           numberOfDays: days
                         });
@@ -160,7 +174,7 @@ export default class Booking extends Component {
                   <TextArea
                     placeholder="Tell us more"
                     id="more"
-                    onChange={this.handleChange}
+                    onChange={handleChange}
                   />
                 </div>
 
@@ -169,21 +183,21 @@ export default class Booking extends Component {
                     <Checkbox
                       label="Taxi Ride"
                       id="taxi"
-                      onClick={this.handleCheck}
+                      onClick={handleCheck}
                     />
                   </div>
                   <div className="col">
                     <Checkbox
                       label="Cleaning Services"
                       id="cleaning"
-                      onClick={this.handleCheck}
+                      onClick={handleCheck}
                     />
                   </div>
                   <div className="col">
                     <Checkbox
                       label="City Tour"
                       id="city"
-                      onClick={this.handleCheck}
+                      onClick={handleCheck}
                     />
                   </div>
                 </div>
@@ -192,7 +206,7 @@ export default class Booking extends Component {
                   control={Checkbox}
                   label="I agree to the Terms and Conditions"
                   id="terms"
-                  onClick={this.handleCheck}
+                  onClick={handleCheck}
                 />
                 <div className="field mx-auto">
                   <button className="text-uppercase  btn-primary2 btn-block ">
@@ -205,5 +219,7 @@ export default class Booking extends Component {
         </div>
       </BookHero>
     );
-  }
+  
 }
+
+export default  Booking
