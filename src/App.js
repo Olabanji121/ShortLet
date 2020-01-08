@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useContext } from "react";
 import "./resources/styles.css";
 import Home from "./pages/Home";
 import { Route, Switch } from "react-router-dom";
@@ -11,6 +11,7 @@ import Header from './components/header_footer/Header';
 import Booking from "./pages/Booking";
 import Alerts from './components/Alerts';
 import setAuthToken from './utills/setAuthToken'
+import AuthContext from './context/auth/AuthContext'
 
 // Firebase.init()
 
@@ -20,8 +21,13 @@ if(localStorage.token){
 }
 
 
-export default class App extends Component {
-  render() {
+const App = ()=> {
+  const authContext = useContext(AuthContext)
+
+  useEffect(()=>{
+    authContext.loadUser()
+  }, [])
+   
     return (
       <> 
         <Header/>
@@ -37,5 +43,7 @@ export default class App extends Component {
         </Switch>
       </>
     );
-  }
+  
 }
+
+export default  App

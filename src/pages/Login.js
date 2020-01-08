@@ -1,8 +1,29 @@
-import React, { useState } from "react";
-import { Form, Checkbox } from "semantic-ui-react";
-import { signup } from "./../js/signup";
+import React, { useState, useContext, useEffect } from "react";
+import { Form} from "semantic-ui-react";
+import AlertContext from '../context/alert/AlertContext'
+import AuthContext from '../context/auth/AuthContext'
 
-const Login = () => {
+
+const Login = (props) => {
+
+  const alertContext = useContext(AlertContext)
+  const authContext = useContext(AuthContext)
+
+  const {setAlert} = alertContext
+  const {login, error, clearError, isAuthenticated} = authContext
+
+  useEffect(()=>{
+    if(isAuthenticated){
+      props.history.push('/');
+    }
+
+    if(error === 'incorrect email or password' || error === 'Please input password and email'){
+       setAlert(error, 'danger')
+       clearError()
+    }
+  },[error, isAuthenticated, props])
+
+
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -14,7 +35,8 @@ const Login = () => {
   const handleSubmit = async e => {
     e.preventDefault();
 
-    // signup({ name, email, password, passwordConfirm });
+    login({email, password})
+    
     console.log(user);
   };
 

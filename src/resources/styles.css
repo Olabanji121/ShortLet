@@ -52,6 +52,16 @@ body {
   letter-spacing: var(--mainSpacing);
 }
 
+
+
+/* Mobile Styles */
+@media (max-width: 700px) {
+
+
+  .hide-sm {
+    display: none;
+  }
+}
 /*====================
         Alert
 ======================*/

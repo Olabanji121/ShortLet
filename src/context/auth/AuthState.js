@@ -78,10 +78,41 @@ const AuthState = props => {
       });
     }
   };
+
   //  LOgin user
-  const login = () => console.log("login");
+  const login = async formData => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+
+    try {
+      const res = await axios.post(
+        "http://localhost:7070/api/v1/users/login",
+        formData,
+        config
+      );
+
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: res.data
+      });
+
+      loadUser()
+
+    } catch (err) {
+      dispatch({
+        type: LOGIN_FAIL,
+        payload: err.response.data.msg
+      });
+    }
+  };
+
   // Logout
-  const logout = () => console.log("logout");
+  const logout = () => dispatch({
+    type: LOG_OUT
+  });
   // clear errors
   const clearError = () =>
     dispatch({
