@@ -9,14 +9,23 @@ import SingleRoom from "./pages/SingleRoom";
 import Error from "./pages/Error";
 import Header from './components/header_footer/Header';
 import Booking from "./pages/Booking";
-
+import Alerts from './components/Alerts';
+import setAuthToken from './utills/setAuthToken'
 
 // Firebase.init()
+
+
+// if(localStorage.token){
+//   setAuthToken(localStorage.token)
+// }
+
+
 export default class App extends Component {
   render() {
     return (
       <> 
         <Header/>
+        <Alerts/>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component={Login} />

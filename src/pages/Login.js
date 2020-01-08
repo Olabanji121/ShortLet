@@ -1,45 +1,43 @@
-import React, { Component } from "react";
-import { Form } from "semantic-ui-react";
+import React, { useState } from "react";
+import { Form, Checkbox } from "semantic-ui-react";
+import { signup } from "./../js/signup";
 
-export class Login extends Component {
-  state = {
-    email: '',
-    password: '',
-  };
-  handleSubmit = async(e) => {
-    e.preventDefault()
-    const {email, password}= this.state;
-
+const Login = () => {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
     
-    console.log(this.state);
+  });
+
+  const {email, password } = user;
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    // signup({ name, email, password, passwordConfirm });
+    console.log(user);
   };
 
-  handleChange = e => {
-      this.setState({
-        [e.target.id]: e.target.value
-      })
+  const handleChange = e => {
+    setUser({ ...user, [e.target.id]: e.target.value });
   };
 
-
- 
-  render() {
-    return (
-      
-        <div className="container " >
+  return (
+    <div className="container " >
           <div className=" col-8 col-sm-6 mx-auto" style={{paddingTop: "20%"}}>
           <h2 className="text-center text-capitalize pb-5">login</h2>
-          <Form onSubmit={this.handleSubmit} className="ui form">
+          <Form onSubmit={handleSubmit} className="ui form">
             <div className="field ">
               <Form.Field>
                 <label htmlFor="email">Email :</label>
-                <input type="email" id="email" onChange={this.handleChange} />
+                <input type="email" id="email" onChange={handleChange} />
               </Form.Field>
               <Form.Field>
                 <label htmlFor="password">Password :</label>
                 <input
                   type="password"
                   id="password"
-                  onChange={this.handleChange}
+                  onChange={handleChange}
                 />
               </Form.Field>
             </div>
@@ -52,9 +50,7 @@ export class Login extends Component {
           </div>
           
         </div>
-      
-    );
-  }
-}
+  );
+};
 
 export default Login;
