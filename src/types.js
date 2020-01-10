@@ -1,5 +1,8 @@
 export const REGISTER_SUCCESS= 'REGISTER_SUCCESS';
 export const REGISTER_FAIL= 'REGISTER_FAIL';
+export const BOOK_SUCCESS= 'BOOK_SUCCESS';
+export const BOOK_FAIL= 'BOOK_FAIL';
+export const CLEAR_BOOK= 'CLEAR_BOOK';
 export const USER_LOADED= 'USER_LOADED';
 export const AUTH_ERROR= ' AUTH_ERROR';
 export const LOGIN_SUCCESS= ' LOGIN_SUCCESS';

@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const cors = require('cors')
 const connectDB = require('./db')
 const userRoute = require('./routes/userRoute')
+const bookRoute = require('./routes/bookRoute')
 
 dotenv.config({path: '../.env.development.local'})
 
@@ -14,7 +15,7 @@ app.use(cors())
 app.use(express.json({extended: false}))
 
 // mount route
-// app.use('/api/v1/uploads', fileUploadRoute)
+app.use('/api/v1/book', bookRoute)
 app.use('/api/v1/users', userRoute)
 
 
