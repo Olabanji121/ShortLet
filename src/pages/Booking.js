@@ -28,7 +28,7 @@ const Booking = props => {
 
   useEffect(() => {
     if (activeBooking) {
-      props.history.push("/");
+      props.history.push("/success");
       clearBook();
     }
 
@@ -101,20 +101,14 @@ const Booking = props => {
       roomname
     });
 
-    // setBook({
-    //   ...book, loading: false
-    // })
+    
   };
 
   const handleChange = e => {
     setBook({ ...book, [e.target.id]: e.target.value });
   };
 
-  // const handleCheck = e => {
-  //   if (terms === false) {
-  //     return alert("Please indicate that you accept the Terms and Conditions");
-  //   }
-  // };
+  
 
   const totalamount = (price, days) => {
     let total = days * price;

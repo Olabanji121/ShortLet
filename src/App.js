@@ -7,11 +7,13 @@ import Register from "./pages/Register";
 import Rooms from "./pages/Rooms";
 import SingleRoom from "./pages/SingleRoom";
 import Error from "./pages/Error";
+import Success from "./pages/Success"
 import Header from './components/header_footer/Header';
 import Booking from "./pages/Booking";
 import Alerts from './components/Alerts';
 import setAuthToken from './utills/setAuthToken'
-import AuthContext from './context/auth/AuthContext'
+import AuthContext from './context/auth/AuthContext';
+import PrivateRoute from './components/PrivateRoute';
 
 // Firebase.init()
 
@@ -39,7 +41,8 @@ const App = ()=> {
           <Route path="/register" exact component={Register} />
           <Route path="/rooms" exact component={Rooms} />
           <Route path="/rooms/:slug" exact component={SingleRoom} />
-          <Route path="/booking/:slug" exact component={Booking}/>
+          <PrivateRoute path="/booking/:slug" exact component={Booking}/>
+          <Route path="/success" exact component={Success}/>
           <Route component={Error} />
         </Switch>
       </>

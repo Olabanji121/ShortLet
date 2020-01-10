@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { Form, Checkbox } from "semantic-ui-react";
 import AlertContext from '../context/alert/AlertContext'
 import AuthContext from '../context/auth/AuthContext'
+import { Link } from "react-router-dom";
 
 
 const Register = (props) => {
@@ -100,6 +101,8 @@ const Register = (props) => {
             <button className="ui orange button btn-block text-capitalize ">
               register
             </button>
+
+            <h6 style={{ color: "orange", paddingTop: "20px" }} >Already have an account? <Link to="/login" className=" link text-dark">Login Here.</Link></h6>
           </div>
         </Form>
       </div>
